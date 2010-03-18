@@ -1,0 +1,6 @@
+## Interface: 30300
+## Title: kCore
+## Author: Kryso 
+
+Core.lua
+UnitAuraIterators.lua
