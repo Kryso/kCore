@@ -4,3 +4,4 @@
 
 Core.lua
 UnitAuraIterators.lua
+AuraFilter.lua
