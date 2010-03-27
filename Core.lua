@@ -60,6 +60,38 @@ do
 	end
 end
 
+local Queue;
+do
+	local Enqueue = function( self, value )
+		tinsert( self.table, value );
+	end
+
+	local Dequeue = function( self )
+		local table = self.table;
+	
+		local result = table[ 1 ];
+		tremove( table, 1 );
+		
+		return result;
+	end
+	
+	local Count = function( self )
+		return #self.table;
+	end
+	
+	local ctor = function( self )
+		self.table = { };
+	end
+	
+	Queue = CreateClass( ctor, {
+			Enqueue = Enqueue,
+			Dequeue = Dequeue,
+			
+			Count = Count,
+		}, nil );
+end
+
 kCore = {
-	CreateClass = CreateClass;
+	CreateClass = CreateClass,
+	Queue = Queue,
 };
