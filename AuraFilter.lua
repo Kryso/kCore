@@ -73,7 +73,7 @@ local call = function( self, unit )
 	return self.iterator, unit, 0;
 end
 
-local ctor = function( self, iterator )
+local ctor = function( self, baseCtor, iterator )
 	self.auraIterator = iterator();
 
 	self.filters = { };
