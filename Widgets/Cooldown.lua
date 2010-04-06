@@ -1,18 +1,11 @@
 -- imports
-local RawCooldown
-RawCooldown = kCore.CreateClass( function( self ) end, nil, function( self )
-	local result = CreateFrame( "Cooldown", nil, nil, nil );
-	
-	if ( not RawCooldown.initialized ) then
-		setmetatable( RawCooldown.prototype, getmetatable( result ) );
-		RawCooldown.initialized = true;
-	end
-	
-	return result;
-end );
+local kCore = kCore;
+
+local AutoScale = kCore.Import( "AutoScale" );
+local RawObject = kCore.Import( "RawObject" );
 
 -- private
-local Base = nil;
+local Cooldown, Base;
 
 -- event handlers
 
@@ -21,9 +14,32 @@ local Base = nil;
 -- public
 
 -- constructor
+local createInstance = function( class )
+	local result = CreateFrame( "Cooldown", nil, nil, nil );
+	
+	if ( not Cooldown.initialized ) then
+		local metatable = getmetatable( result );
+
+		setmetatable( Cooldown.prototype, metatable );
+		
+		Cooldown.globalMetadata.rawMetatable = metatable;
+		
+		local index = metatable.__index;
+		Cooldown.globalMetadata.rawPrototype = index;
+		Base = index;
+		
+		Cooldown.initialized = true;
+	end
+	
+	return result;	
+end
+
 local ctor = function( self, baseCtor )
 	
 end
 
 -- main
-kWidgets.Cooldown, Base = kCore.CreateClass( ctor, nil, RawCooldown );
+Cooldown = kCore.CreateClass( ctor, nil, createInstance, RawObject, AutoScale );
+
+kWidgets.Cooldown = Cooldown;
+kCore.Register( "Cooldown", Cooldown );

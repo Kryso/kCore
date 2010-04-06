@@ -1,18 +1,11 @@
 -- imports
-local RawTexture
-RawTexture = kCore.CreateClass( function( self, frame ) end, nil, function( class, frame )
-	local result = frame:CreateTexture( nil, nil, nil );
-	
-	if ( not RawTexture.initialized ) then
-		setmetatable( RawTexture.prototype, getmetatable( result ) );
-		RawTexture.initialized = true;
-	end
-	
-	return result;
-end );
+local kCore = kCore;
+
+local AutoScale = kCore.Import( "AutoScale" );
+local RawObject = kCore.Import( "RawObject" );
 
 -- private
-local Base = nil;
+local Texture, Base;
 
 -- event handlers
 
@@ -21,9 +14,32 @@ local Base = nil;
 -- public
 
 -- constructor
+local instanceFactory = function( class, frame )
+	local result = frame:CreateTexture( nil, nil, nil );
+	
+	if ( not Texture.initialized ) then
+		local metatable = getmetatable( result );
+
+		setmetatable( Texture.prototype, metatable );
+		
+		Texture.globalMetadata.rawMetatable = metatable;
+		
+		local index = metatable.__index;
+		Texture.globalMetadata.rawPrototype = index;
+		Base = index;
+		
+		Texture.initialized = true;
+	end
+	
+	return result;
+end
+
 local ctor = function( self, baseCtor, frame )
 	
 end
 
 -- main
-kWidgets.Texture, Base = kCore.CreateClass( ctor, nil, RawTexture );
+Texture, Base = kCore.CreateClass( ctor, nil, instanceFactory, RawObject, AutoScale );
+
+kWidgets.Texture = Texture;
+kCore.Register( "Texture", Texture );

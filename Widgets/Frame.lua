@@ -1,18 +1,11 @@
 -- imports
-local RawFrame
-RawFrame = kCore.CreateClass( function( self ) end, nil, function( class )
-	local result = CreateFrame( "Frame", nil, UIParent, nil );
+local kCore = kCore;
 
-	if ( not RawFrame.initialized ) then
-		setmetatable( RawFrame.prototype, getmetatable( result ) );
-		RawFrame.initialized = true;
-	end
-	
-	return result;
-end );
+local AutoScale = kCore.Import( "AutoScale" );
+local RawObject = kCore.Import( "RawObject" );
 
 -- private
-local Base = nil;
+local Frame, Base;
 
 -- frame scripts
 local OnEvent = function( self, event, ... )
@@ -63,6 +56,26 @@ local UnregisterEvent = function( self, eventObject )
 end
 	
 -- constructor
+local createInstance = function( class )
+	local result = CreateFrame( "Frame", nil, UIParent, nil );
+
+	if ( not Frame.initialized ) then
+		local metatable = getmetatable( result );
+
+		setmetatable( Frame.prototype, metatable );
+		
+		Frame.globalMetadata.rawMetatable = metatable;
+		
+		local index = metatable.__index;
+		Frame.globalMetadata.rawPrototype = index;
+		Base = index;
+		
+		Frame.initialized = true;
+	end
+	
+	return result;
+end
+
 local ctor = function( self, baseCtor )
 	self.handlers = { };
 	
@@ -70,7 +83,10 @@ local ctor = function( self, baseCtor )
 end
 
 -- main
-kWidgets.Frame, Base = kCore.CreateClass( ctor, { 
+Frame = kCore.CreateClass( ctor, { 
 		RegisterEvent = RegisterEvent,
 		UnregisterEvent = UnregisterEvent,
-	}, RawFrame );
+	}, createInstance, RawObject, AutoScale );
+	
+kWidgets.Frame = Frame;
+kCore.Register( "Frame", Frame );

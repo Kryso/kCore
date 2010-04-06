@@ -96,39 +96,16 @@ kWidgets.Icon, Base = kCore.CreateClass( ctor, {
 		-- icon
 		GetTexture = GetTexture,
 		SetTexture = SetTexture,
-		SetDrawLayer = SetDrawLayer,
+		
 		SetTexCoord = SetTexCoord,
 		GetTexCoord = GetTexCoord,
+		
 		-- border
 		SetBorderColor = SetBorderColor,
 		SetBorderSize = SetBorderSize,
+		
 		-- cooldown
 		SetCooldown = SetCooldown,
 		ShowCooldown = ShowCooldown,
 		HideCooldown = HideCooldown,
 	}, Frame );
-	
--- test
-
---[[
-local Frame = kWidgets.Frame;
-local Icon = kWidgets.Icon;
-
-local frame = Frame();
-frame:SetParent( UIParent );
-frame:SetPoint( "BOTTOM", UIParent, "CENTER", 100, 0 );
-frame:SetWidth( 100 );
-frame:SetHeight( 100 );
-frame:SetFrameStrata( "DIALOG" );
-frame:EnableMouse( true );
-
-local icon = Icon( false );
-icon:SetParent( frame );
-icon:SetBorderSize( 1 );
-icon:SetBorderColor( 1, 0.5, 0, 1 );
-icon:SetPoint( "TOPLEFT", frame, "TOPLEFT", 0, 0 );
-icon:SetPoint( "BOTTOMRIGHT", frame, "BOTTOMRIGHT", 0, 0 );
-
-frame:SetScript( "OnMouseDown", function( self, button )
-	self:Hide();
-end );]]--

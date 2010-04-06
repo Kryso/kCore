@@ -1,14 +1,22 @@
 local _, Internals = ...;
 
+local GetMetadata = function( object )
+	local metatable = getmetatable( object );
+	
+	if ( metatable ) then
+		return metatable.metadata;
+	end
+	
+	return nil;
+end
+
 local GetType = function( object )
 	local objectType = type( object );
 	
 	if ( objectType ~= "table" ) then return objectType; end
 	
-	local metatable = getmetatable( object );
-	if ( metatable and metatable.metadata ) then
-		local metadata = metatable.metadata;
-	
+	local metadata = GetMetadata( object );
+	if ( metadata ) then	
 		if ( metadata.isInstance ) then
 			return "instance";
 		elseif ( metadata.isClass ) then
@@ -23,10 +31,17 @@ end
 
 local CreateClass;
 do
-	local SetupMetadata = function( class, name )
+	local SetupMetadata = function( class )
 		local metadata = {
 				isInstance = true,
 			};
+		
+		local globalMetadata = class.globalMetadata or { };
+		class.globalMetadata = globalMetadata;
+		
+		setmetatable( metadata, { __index = globalMetadata } );
+		
+		class.metatable.metadata = metadata;
 		class.metadata = metadata;
 	end
 
@@ -101,6 +116,7 @@ do
 				setmetatable( prototype, inherit.metatable );
 				
 				class.inherit = inherit;
+				class.globalMetadata = inherit.globalMetadata;
 			end
 			
 			for i = 1, select( "#", ... ) do
@@ -111,15 +127,17 @@ do
 			end
 			
 			class.prototype = prototype;
-			class.metatable = { __index = prototype };
+			class.metatable = { 
+					__index = prototype,
+				};
 		end
 	end
 
 	local New
 	do
 		New = function( class, ... )
-			local instance = class:instanceFactory( ... );
-
+			local instance = class:instanceFactory( ... );	
+			
 			setmetatable( instance, class.metatable );
 			
 			class.ctor( instance, ... );
@@ -135,9 +153,9 @@ do
 				metadata = { isClass = true, isAbstract = not ctor },
 			} );
 		
-		SetupMetadata( class );
 		SetupInstanceFactory( class, inherit );
 		SetupPrototype( class, prototype, inherit, ... );
+		SetupMetadata( class );
 		SetupCtor( class, ctor );
 		
 		return class, class.inherit and class.inherit.prototype or nil;
@@ -169,8 +187,9 @@ do
 end
 
 kCore = {
-		CreateClass = CreateClass,
+		GetMetadata = GetMetadata,
 		GetType = GetType,
+		CreateClass = CreateClass,
 		
 		Register = Register,
 		Import = Import,

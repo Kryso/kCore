@@ -1,4 +1,6 @@
 -- imports
+local kWidgets = kWidgets;
+
 local Texture = kWidgets.Texture;
 
 -- private
@@ -70,7 +72,7 @@ local ctor = function( self, baseCtor, frame )
 	self.innerSize = 1;
 	self.outerSize = 1;
 
-	self:SetTexture( 0.1, 0.1, 0.1, 1 );
+	self:SetTexture( 1, 1, 1, 1 );
 	self:SetDrawLayer( "BACKGROUND" );
 	
 	local left = Texture( frame );
@@ -93,15 +95,21 @@ local ctor = function( self, baseCtor, frame )
 	bottom:SetDrawLayer( "BORDER" );
 	self.bottom = bottom;
 	
+	Base.SetVertexColor( self, unpack( kWidgets.DefaultBackgroundColor ) );	
+	self:SetVertexColor( unpack( kWidgets.DefaultBorderColor ) );
+	
 	UpdateAnchors( self );
 end
 
 -- main
 kWidgets.Border, Base = kCore.CreateClass( ctor, { 
 		SetVertexColor = SetVertexColor,
+		
 		SetInnerSize = SetInnerSize,
 		GetInnerSize = GetInnerSize,
+		
 		SetOuterSize = SetOuterSize,
 		GetOuterSize = GetOuterSize,
+		
 		GetSize = GetSize,
 	}, Texture );

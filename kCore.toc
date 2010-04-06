@@ -1,12 +1,16 @@
 ## Interface: 30300
 ## Title: kCore
-## Author: Kryso 
+## Author: Kryso
+## Dependencies: Tukui
 
 Core.lua
 UnitAuraIterators.lua
 AuraFilter.lua
 
 Widgets\kWidgets.lua
+
+Widgets\RawObject.lua
+Widgets\AutoScale.lua
 
 Widgets\Frame.lua
 Widgets\Cooldown.lua
