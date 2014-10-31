@@ -93,19 +93,19 @@ end
 
 -- **** main ****
 kWidgets.Icon, Base = kCore.CreateClass( ctor, { 
-		-- icon
-		GetTexture = GetTexture,
-		SetTexture = SetTexture,
-		
-		SetTexCoord = SetTexCoord,
-		GetTexCoord = GetTexCoord,
-		
-		-- border
-		SetBorderColor = SetBorderColor,
-		SetBorderSize = SetBorderSize,
-		
-		-- cooldown
-		SetCooldown = SetCooldown,
-		ShowCooldown = ShowCooldown,
-		HideCooldown = HideCooldown,
-	}, Frame );
+	-- icon
+	GetTexture = GetTexture,
+	SetTexture = SetTexture,
+	
+	SetTexCoord = SetTexCoord,
+	GetTexCoord = GetTexCoord,
+	
+	-- border
+	SetBorderColor = SetBorderColor,
+	SetBorderSize = SetBorderSize,
+	
+	-- cooldown
+	SetCooldown = SetCooldown,
+	ShowCooldown = ShowCooldown,
+	HideCooldown = HideCooldown,
+}, Frame );

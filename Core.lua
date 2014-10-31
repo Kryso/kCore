@@ -33,8 +33,8 @@ local CreateClass;
 do
 	local SetupMetadata = function( class )
 		local metadata = {
-				isInstance = true,
-			};
+			isInstance = true,
+		};
 		
 		local globalMetadata = class.globalMetadata or { };
 		class.globalMetadata = globalMetadata;
@@ -128,8 +128,8 @@ do
 			
 			class.prototype = prototype;
 			class.metatable = { 
-					__index = prototype,
-				};
+				__index = prototype,
+			};
 		end
 	end
 
@@ -149,9 +149,9 @@ do
 	CreateClass = function( ctor, prototype, inherit, ... )
 		local class = { };
 		setmetatable( class, { 
-				__call = New,
-				metadata = { isClass = true, isAbstract = not ctor },
-			} );
+			__call = New,
+			metadata = { isClass = true, isAbstract = not ctor },
+		} );
 		
 		SetupInstanceFactory( class, inherit );
 		SetupPrototype( class, prototype, inherit, ... );
@@ -187,10 +187,10 @@ do
 end
 
 kCore = {
-		GetMetadata = GetMetadata,
-		GetType = GetType,
-		CreateClass = CreateClass,
-		
-		Register = Register,
-		Import = Import,
-	};
+	GetMetadata = GetMetadata,
+	GetType = GetType,
+	CreateClass = CreateClass,
+	
+	Register = Register,
+	Import = Import,
+};

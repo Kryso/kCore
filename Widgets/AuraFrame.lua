@@ -192,20 +192,20 @@ end
 
 -- **** main ****
 kWidgets.AuraFrame, Base = kCore.CreateClass( ctor, {
-		GetUnit = GetUnit,
-		Render = Render,
-		
-		-- size and anchoring
-		GetMaxWidth = GetMaxWidth,
-		SetMaxWidth = SetMaxWidth,
+	GetUnit = GetUnit,
+	Render = Render,
+	
+	-- size and anchoring
+	GetMaxWidth = GetMaxWidth,
+	SetMaxWidth = SetMaxWidth,
 
-		-- icon properties
-		SetIconSize = SetIconSize,
-		GetIconSize = GetIconSize,
-		SetMargin = SetMargin,
-		GetMargin = GetMargin,
-		
-		-- filtering
-		AddFilter = AddFilter,
-		RemoveFilter = RemoveFilter,
-	}, Frame );
+	-- icon properties
+	SetIconSize = SetIconSize,
+	GetIconSize = GetIconSize,
+	SetMargin = SetMargin,
+	GetMargin = GetMargin,
+	
+	-- filtering
+	AddFilter = AddFilter,
+	RemoveFilter = RemoveFilter,
+}, Frame );

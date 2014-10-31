@@ -1,7 +1,7 @@
-## Interface: 30300
+## Interface: 60000
 ## Title: kCore
 ## Author: Kryso
-## Dependencies: Tukui
+## Dependencies: ElvUI
 
 Core.lua
 UnitAuraIterators.lua

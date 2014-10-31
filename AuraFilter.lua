@@ -84,9 +84,9 @@ end
 
 -- **** main ****
 kCore.AuraFilter, _ = kCore.CreateClass( ctor, {
-		AddFilter = AddFilter,
-		RemoveFilter = RemoveFilter,
-	}, nil );
+	AddFilter = AddFilter,
+	RemoveFilter = RemoveFilter,
+}, nil );
 	
 kCore.AuraFilter.metatable.__call = call;
  

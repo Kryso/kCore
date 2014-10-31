@@ -58,6 +58,6 @@ local ctor = function( self, baseCtor )
 end
 
 kWidgets.AuraIcon, Base = kCore.CreateClass( ctor, {
-		SetType = SetType,
-		SetCount = SetCount,
-	}, Icon );
+	SetType = SetType,
+	SetCount = SetCount,
+}, Icon );
