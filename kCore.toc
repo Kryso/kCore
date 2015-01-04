@@ -17,12 +17,14 @@ Widgets\Cooldown.lua
 Widgets\Texture.lua
 Widgets\FontString.lua
 
+Events.lua
+Dr.lua
+
 Widgets\Border.lua
 Widgets\Icon.lua
 Widgets\AuraIcon.lua
 Widgets\AuraFrame.lua
-
+Widgets\DrIcon.lua
+Widgets\DrFrame.lua
 Widgets\FloatingFontString.lua
 Widgets\FloatingMessageFrame.lua
-
-kEvents.lua

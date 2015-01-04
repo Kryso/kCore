@@ -22,10 +22,10 @@ local GetIcon = function( self, index )
 	end
 	
 	if ( not icon ) then
-		icon = AuraIcon( true );
-		icon:SetParent( self );
-		icon:SetWidth( iconSize );
-		icon:SetHeight( iconSize );
+		icon = AuraIcon();
+		icon:SetParent(self);
+		icon:SetWidth(iconSize);
+		icon:SetHeight(iconSize);
 
 		if ( index == 1 ) then
 			icon:SetPoint( "LEFT", self, "LEFT", 0, 0 );
@@ -79,7 +79,7 @@ local OnPlayerFocusChanged = function( self )
 	self:Render();
 end
 
-local OnPartyMembersChanged = function( self )
+local OnGroupRosterUpdate = function( self )
 	local unit = self:GetUnit();
 
 	if ( not unit or not unit:match( "^party%d$" ) ) then return; end
@@ -187,7 +187,7 @@ local ctor = function( self, baseCtor, unit, iterator )
 	self:RegisterEvent( "UNIT_AURA", OnUnitAura );
 	self:RegisterEvent( "PLAYER_TARGET_CHANGED", OnPlayerTargetChanged );
 	self:RegisterEvent( "PLAYER_FOCUS_CHANGED", OnPlayerFocusChanged );
-	self:RegisterEvent( "PARTY_MEMBERS_CHANGED", OnPartyMembersChanged );
+	self:RegisterEvent( "GROUP_ROSTER_UPDATE", OnGroupRosterUpdate );
 end
 
 -- **** main ****

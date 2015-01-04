@@ -1,4 +1,7 @@
 -- **** imports ****
+local kCore = kCore;
+local kWidgets = kWidgets;
+
 local Icon = kWidgets.Icon;
 local FontString = kWidgets.FontString;
 local Frame = kWidgets.Frame;

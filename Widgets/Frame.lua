@@ -56,8 +56,11 @@ local UnregisterEvent = function( self, eventObject )
 end
 	
 -- constructor
+local frameIndex = 0;
 local createInstance = function( class )
-	local result = CreateFrame( "Frame", nil, UIParent, nil );
+	local result = CreateFrame( "Frame", "kFrame" .. frameIndex, UIParent, nil );
+
+	frameIndex = frameIndex + 1;
 
 	if ( not Frame.initialized ) then
 		local metatable = getmetatable( result );
@@ -84,9 +87,9 @@ end
 
 -- main
 Frame = kCore.CreateClass( ctor, { 
-		RegisterEvent = RegisterEvent,
-		UnregisterEvent = UnregisterEvent,
-	}, createInstance, RawObject, AutoScale );
+	RegisterEvent = RegisterEvent,
+	UnregisterEvent = UnregisterEvent,
+}, createInstance, RawObject, AutoScale );
 	
 kWidgets.Frame = Frame;
 kCore.Register( "Frame", Frame );

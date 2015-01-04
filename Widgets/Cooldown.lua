@@ -14,9 +14,12 @@ local Cooldown, Base;
 -- public
 
 -- constructor
+local instanceIndex = 0;
 local createInstance = function( class )
-	local result = CreateFrame( "Cooldown", nil, nil, nil );
+	local result = CreateFrame( "Cooldown", "kCooldown" .. instanceIndex, nil, "CooldownFrameTemplate" );
 	
+	instanceIndex = instanceIndex + 1;
+
 	if ( not Cooldown.initialized ) then
 		local metatable = getmetatable( result );
 

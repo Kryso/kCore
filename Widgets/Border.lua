@@ -103,13 +103,13 @@ end
 
 -- main
 kWidgets.Border, Base = kCore.CreateClass( ctor, { 
-		SetVertexColor = SetVertexColor,
-		
-		SetInnerSize = SetInnerSize,
-		GetInnerSize = GetInnerSize,
-		
-		SetOuterSize = SetOuterSize,
-		GetOuterSize = GetOuterSize,
-		
-		GetSize = GetSize,
-	}, Texture );
+	SetVertexColor = SetVertexColor,
+	
+	SetInnerSize = SetInnerSize,
+	GetInnerSize = GetInnerSize,
+	
+	SetOuterSize = SetOuterSize,
+	GetOuterSize = GetOuterSize,
+	
+	GetSize = GetSize,
+}, Texture );

@@ -127,11 +127,11 @@ end
 
 -- **** main ****
 kWidgets.FloatingMessageFrame, Base = kCore.CreateClass( ctor, { 
-		Add = Add,
-		
-		GetMaxLineCount = GetMaxLineCount,
-		SetMaxLineCount = SetMaxLineCount,
-		
-		GetSpeed = GetSpeed,
-		SetSpeed = SetSpeed,
-	}, Frame );
+	Add = Add,
+	
+	GetMaxLineCount = GetMaxLineCount,
+	SetMaxLineCount = SetMaxLineCount,
+	
+	GetSpeed = GetSpeed,
+	SetSpeed = SetSpeed,
+}, Frame );

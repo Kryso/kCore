@@ -1,5 +1,5 @@
 -- main
-local E, L, V, P, G = unpack(ElvUI); --Inport: Engine, Locales, PrivateDB, ProfileDB, GlobalDB
+local E, L, V, P, G = unpack(ElvUI); --Import: Engine, Locales, PrivateDB, ProfileDB, GlobalDB
 
 local Scale = function( value )
 	return E and E:Scale( value ) or value;
@@ -12,6 +12,7 @@ kWidgets = {
 	
 	DefaultBorderColor = E and E["media"]["bordercolor"] or { 1, 1, 1, 1 },
 	DefaultBackgroundColor = E and E["media"]["backdropcolor"] or { .1, .1, .1, 1 },
+	DefaultValueColor = E and E["media"]["rgbvaluecolor"] or { 1, 1, 1, 1 },
 	
 	Scale = Scale,
 };

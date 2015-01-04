@@ -83,6 +83,7 @@ local ctor = function( self, baseCtor, createCooldown )
 		local cooldown = Cooldown();
 		cooldown:SetParent( self );
 		cooldown:SetReverse( true );
+		cooldown:SetAlpha( 1 );
 		cooldown:SetPoint( "TOPLEFT", icon, "TOPLEFT", 0, 0 );
 		cooldown:SetPoint( "BOTTOMRIGHT", icon, "BOTTOMRIGHT", 0, 0 );
 		self.cooldown = cooldown;

@@ -120,17 +120,17 @@ end
 
 -- **** main ****
 Internals.FloatingFontString, Base = kCore.CreateClass( ctor, { 
-		GetOffset = GetOffset,
-		SetOffset = SetOffset,
-		
-		Show = Show,
-		Hide = Hide,
-		
-		GetSpeed = GetSpeed,
-		SetSpeed = SetSpeed,
-		
-		GetInitialOffset = GetInitialOffset,
-		SetInitialOffset = SetInitialOffset,
-		
-		GetCurrentOffset = GetCurrentOffset,
-	}, FontString );
+	GetOffset = GetOffset,
+	SetOffset = SetOffset,
+	
+	Show = Show,
+	Hide = Hide,
+	
+	GetSpeed = GetSpeed,
+	SetSpeed = SetSpeed,
+	
+	GetInitialOffset = GetInitialOffset,
+	SetInitialOffset = SetInitialOffset,
+	
+	GetCurrentOffset = GetCurrentOffset,
+}, FontString );

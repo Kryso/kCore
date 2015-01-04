@@ -50,7 +50,7 @@ local SetHeight = function( self, height )
 end
 
 kCore.Register( "AutoScale", kCore.CreateClass( nil, {
-		SetPoint = SetPoint,
-		SetWidth = SetWidth,
-		SetHeight = SetHeight,		
-	}, nil ) );
+	SetPoint = SetPoint,
+	SetWidth = SetWidth,
+	SetHeight = SetHeight,		
+}, nil ) );

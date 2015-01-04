@@ -28,5 +28,5 @@ local MakeRaw = function( self )
 end
 
 kCore.Register( "RawObject", kCore.CreateClass( nil, {
-		MakeRaw = MakeRaw,		
-	}, nil ) );
+	MakeRaw = MakeRaw,		
+}, nil ) );
