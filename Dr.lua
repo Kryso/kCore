@@ -341,6 +341,7 @@ do
 	 
 	-- disorients
 	kDr.RegisterAura(kDr.CATEGORY_DISORIENT, 10326); -- Turn Evil
+	kDr.RegisterAura(kDr.CATEGORY_DISORIENT, 115750); -- Blinding Light (TODO: verify this is the correct aura id)
 	 
 	-- silences
 	kDr.RegisterAura(kDr.CATEGORY_SILENCE, 31935); -- Avenger's Shield
