@@ -1,4 +1,4 @@
-## Interface: 60000
+## Interface: 70000
 ## Title: kCore
 ## Author: Kryso
 ## Dependencies: ElvUI

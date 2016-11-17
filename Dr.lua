@@ -1,6 +1,6 @@
-local TEST_MODE = false;
+local TEST_MODE = true;
 
-local RESET = 18;
+local RESET = 18.5;
 local DURATIONS = { 1.0, 0.5, 0.25 };
 
 local CATEGORY_ROOT = 1;
@@ -240,198 +240,187 @@ end
 
 -- data import
 do
-	--[[ Death Knight ]]
-	-- roots
-	kDr.RegisterAura(kDr.CATEGORY_ROOT, 96294); -- Chains of Ice (chillblains)
-	 
-	-- stuns
-	kDr.RegisterAura(kDr.CATEGORY_STUN, 108194); -- Asphyxiate
-	kDr.RegisterAura(kDr.CATEGORY_STUN, 91800); -- Gnaw (Risen Ally)
-	kDr.RegisterAura(kDr.CATEGORY_STUN, 47481); -- Gnaw (Ghoul)
-	kDr.RegisterAura(kDr.CATEGORY_STUN, 91797); -- Monstrous Blow (DT Ghoul)
-	kDr.RegisterAura(kDr.CATEGORY_STUN, 115001); -- Remorseless Winter
-	 
-	-- silences
-	kDr.RegisterAura(kDr.CATEGORY_SILENCE, 47476); -- Strangulate
-	 
-	--[[ Druid ]]
-	-- roots
-	kDr.RegisterAura(kDr.CATEGORY_ROOT, 12747); -- Entangling Roots
-	kDr.RegisterAura(kDr.CATEGORY_ROOT, 102359); -- Mass Entanglement
-	 
-	-- stuns
-	kDr.RegisterAura(kDr.CATEGORY_STUN, 22570); -- Maim
-	kDr.RegisterAura(kDr.CATEGORY_STUN, 5211); -- Mighty Bash
-	kDr.RegisterAura(kDr.CATEGORY_STUN, 163505); -- Rake
-	 
-	-- incapacitates
-	kDr.RegisterAura(kDr.CATEGORY_INCAPACITATE, 99); -- Incapacitating Roar
-	 
-	-- disorients
-	kDr.RegisterAura(kDr.CATEGORY_DISORIENT, 33786); -- Cyclone
-	 
-	-- silences
-	--kDr.RegisterAura(kDr.CATEGORY_SILENCE, ???); -- Glyph of Fae Silence
-	 
-	--[[ Hunter ]]
-	-- roots
-	kDr.RegisterAura(kDr.CATEGORY_ROOT, 53148); -- Charge (pet)
-	kDr.RegisterAura(kDr.CATEGORY_ROOT, 19387); -- Entrapment
-	kDr.RegisterAura(kDr.CATEGORY_ROOT, 109298); -- Narrow Escape
-	 
-	-- stuns
-	kDr.RegisterAura(kDr.CATEGORY_STUN, 117526); -- Binding Shot
-	kDr.RegisterAura(kDr.CATEGORY_STUN, 19577); -- Intimidation
-	 
-	-- incapacitates
+	--[[ INCAPACITATES ]]--
+	-- Druid
+	kDr.RegisterAura(kDr.CATEGORY_INCAPACITATE, 99); -- Incapacitating Roar (talent)
+	kDr.RegisterAura(kDr.CATEGORY_INCAPACITATE, 203126); -- Maim (with blood trauma pvp talent)
+	-- Hunter
 	kDr.RegisterAura(kDr.CATEGORY_INCAPACITATE, 3355); -- Freezing Trap
 	kDr.RegisterAura(kDr.CATEGORY_INCAPACITATE, 19386); -- Wyvern Sting
-	 
-	--[[ Mage ]]
-	-- roots
-	kDr.RegisterAura(kDr.CATEGORY_ROOT, 33395); -- Freeze (water elemental)
-	kDr.RegisterAura(kDr.CATEGORY_ROOT, 122); -- Frost Nova
-	--kDr.RegisterAura(kDr.CATEGORY_ROOT, ???); -- Ice Ward
-	 
-	-- stuns
-	kDr.RegisterAura(kDr.CATEGORY_STUN, 44572); -- Deep Freeze
-	 
-	-- incapacitates
-	kDr.RegisterAura(kDr.CATEGORY_INCAPACITATE, 31661); -- Dragon's Breath
-	kDr.RegisterAura(kDr.CATEGORY_INCAPACITATE, 118); -- Polymorph (sheep)
+	kDr.RegisterAura(kDr.CATEGORY_INCAPACITATE, 209790); -- Freezing Arrow
+	kDr.RegisterAura(kDr.CATEGORY_INCAPACITATE, 213691); -- Scatter Shot
+	-- Mage
+	kDr.RegisterAura(kDr.CATEGORY_INCAPACITATE, 118); -- Polymorph
 	kDr.RegisterAura(kDr.CATEGORY_INCAPACITATE, 28272); -- Polymorph (pig)
 	kDr.RegisterAura(kDr.CATEGORY_INCAPACITATE, 28271); -- Polymorph (turtle)
-	kDr.RegisterAura(kDr.CATEGORY_INCAPACITATE, 161372); -- Polymorph (peacock)
-	kDr.RegisterAura(kDr.CATEGORY_INCAPACITATE, 61305); -- Polymorph (cat)
-	kDr.RegisterAura(kDr.CATEGORY_INCAPACITATE, 61780); -- Polymorph (turkey)
+	kDr.RegisterAura(kDr.CATEGORY_INCAPACITATE, 61305); -- Polymorph (black cat)
 	kDr.RegisterAura(kDr.CATEGORY_INCAPACITATE, 61721); -- Polymorph (rabbit)
-	kDr.RegisterAura(kDr.CATEGORY_INCAPACITATE, 161355); -- Polymorph (penguin)
+	kDr.RegisterAura(kDr.CATEGORY_INCAPACITATE, 61780); -- Polymorph (turkey)
+	kDr.RegisterAura(kDr.CATEGORY_INCAPACITATE, 126819); -- Polymorph (procupine)
+	kDr.RegisterAura(kDr.CATEGORY_INCAPACITATE, 161353); -- Polymorph (bear cub)
 	kDr.RegisterAura(kDr.CATEGORY_INCAPACITATE, 161354); -- Polymorph (monkey)
-	kDr.RegisterAura(kDr.CATEGORY_INCAPACITATE, 161353); -- Polymorph (polar bear)
-	kDr.RegisterAura(kDr.CATEGORY_INCAPACITATE, 126819); -- Polymorph (porcupine)
+	kDr.RegisterAura(kDr.CATEGORY_INCAPACITATE, 161355); -- Polymorph (penguin)
+	kDr.RegisterAura(kDr.CATEGORY_INCAPACITATE, 161372); -- Polymorph (peacock)
 	kDr.RegisterAura(kDr.CATEGORY_INCAPACITATE, 82691); -- Ring of Frost
-	 
-	-- silences
-	kDr.RegisterAura(kDr.CATEGORY_SILENCE, 102051); -- Frostjaw
-	 
-	--[[ Monk ]]
-	-- roots
-	kDr.RegisterAura(kDr.CATEGORY_ROOT, 116095); -- Disable
-	 
-	-- stuns
-	kDr.RegisterAura(kDr.CATEGORY_STUN, 119392); -- Charging Ox Wave
-	kDr.RegisterAura(kDr.CATEGORY_STUN, 120086); -- Fists of Fury
-	kDr.RegisterAura(kDr.CATEGORY_STUN, 119381); -- Leg Sweep
-	 
-	-- incapacitates
-	--kDr.RegisterAura(kDr.CATEGORY_INCAPACITATE, ???); -- Glyph of Breath of Fire
+	-- Monk
 	kDr.RegisterAura(kDr.CATEGORY_INCAPACITATE, 115078); -- Paralysis
-	kDr.RegisterAura(kDr.CATEGORY_INCAPACITATE, 137460); -- Ring of Peace
-	 
-	--[[ Paladin ]]
-	-- roots
-	 
-	-- stuns
-	kDr.RegisterAura(kDr.CATEGORY_STUN, 105593); -- Fist of Justice
-	kDr.RegisterAura(kDr.CATEGORY_STUN, 853); -- Hammer of Justice
-	kDr.RegisterAura(kDr.CATEGORY_STUN, 119072); -- Holy Wrath
-	 
-	-- incapacitates
+	-- Paladin
 	kDr.RegisterAura(kDr.CATEGORY_INCAPACITATE, 20066); -- Repentance
-	 
-	-- disorients
-	kDr.RegisterAura(kDr.CATEGORY_DISORIENT, 10326); -- Turn Evil
-	kDr.RegisterAura(kDr.CATEGORY_DISORIENT, 115750); -- Blinding Light (TODO: verify this is the correct aura id)
-	 
-	-- silences
-	kDr.RegisterAura(kDr.CATEGORY_SILENCE, 31935); -- Avenger's Shield
-	 
-	--[[ Priest ]]
-	-- roots
-	kDr.RegisterAura(kDr.CATEGORY_ROOT, 87194); -- Glyph of Mind Blast
-	kDr.RegisterAura(kDr.CATEGORY_ROOT, 108920); -- Void Tendrils
-	 
-	-- incapacitates
-	kDr.RegisterAura(kDr.CATEGORY_INCAPACITATE, 605); -- Dominate Mind
+	-- Priest
+	kDr.RegisterAura(kDr.CATEGORY_INCAPACITATE, 605); -- Mind Control
+	kDr.RegisterAura(kDr.CATEGORY_INCAPACITATE, 9484); -- Shackle Undead
+	kDr.RegisterAura(kDr.CATEGORY_INCAPACITATE, 64044); -- Psychic Horror (Horror effect)
 	kDr.RegisterAura(kDr.CATEGORY_INCAPACITATE, 88625); -- Holy Word: Chastise
-	kDr.RegisterAura(kDr.CATEGORY_INCAPACITATE, 64044); -- Psychic Horror
-	 
-	-- disorients
-	kDr.RegisterAura(kDr.CATEGORY_DISORIENT, 8122); -- Psychic Scream
-	 
-	-- silences
-	kDr.RegisterAura(kDr.CATEGORY_SILENCE, 15487); -- Silence
-	 
-	--[[ Rogue ]]
-	-- stuns
-	kDr.RegisterAura(kDr.CATEGORY_STUN, 1833); -- Cheap Shot
-	kDr.RegisterAura(kDr.CATEGORY_STUN, 408); -- Kidney Shot
-	 
-	-- incapacitates
+	-- Rogue
 	kDr.RegisterAura(kDr.CATEGORY_INCAPACITATE, 1776); -- Gouge
 	kDr.RegisterAura(kDr.CATEGORY_INCAPACITATE, 6770); -- Sap
-	 
-	-- disorients
-	kDr.RegisterAura(kDr.CATEGORY_DISORIENT, 2094); -- Blind
-	 
-	-- silences
+	-- Shaman
+	kDr.RegisterAura(kDr.CATEGORY_INCAPACITATE, 51514); -- Hex
+	kDr.RegisterAura(kDr.CATEGORY_INCAPACITATE, 211004); -- Hex (spider)
+	kDr.RegisterAura(kDr.CATEGORY_INCAPACITATE, 210873); -- Hex (raptor)
+	kDr.RegisterAura(kDr.CATEGORY_INCAPACITATE, 211015); -- Hex (cockroach)
+	kDr.RegisterAura(kDr.CATEGORY_INCAPACITATE, 211010); -- Hex (snake)
+	-- Warlock
+	kDr.RegisterAura(kDr.CATEGORY_INCAPACITATE, 710); -- Banish
+	kDr.RegisterAura(kDr.CATEGORY_INCAPACITATE, 6789); -- Mortal Coil
+	-- Pandaren
+	kDr.RegisterAura(kDr.CATEGORY_INCAPACITATE, 107079); -- Quaking Palm
+	
+	--[[ SILENCES ]]--
+	-- Death Knight
+	kDr.RegisterAura(kDr.CATEGORY_SILENCE, 47476); -- Strangulate
+	-- Demon Hunter
+	kDr.RegisterAura(kDr.CATEGORY_SILENCE, 204490); -- Sigil of Silence
+	-- Druid
+	-- Hunter
+	kDr.RegisterAura(kDr.CATEGORY_SILENCE, 202933); -- Spider Sting (pvp talent)
+	-- Mage
+	-- Paladin
+	kDr.RegisterAura(kDr.CATEGORY_SILENCE, 31935); -- Avenger's Shield
+	-- Priest
+	kDr.RegisterAura(kDr.CATEGORY_SILENCE, 15487); -- Silence
+	kDr.RegisterAura(kDr.CATEGORY_SILENCE, 199683); -- Last Word (SW: Death silence)
+	-- Rogue
 	kDr.RegisterAura(kDr.CATEGORY_SILENCE, 1330); -- Garrote
-	 
-	--[[ Shaman ]]
-	-- roots
-	kDr.RegisterAura(kDr.CATEGORY_ROOT, 64695); -- Earthgrab Totem
-	kDr.RegisterAura(kDr.CATEGORY_ROOT, 63685); -- Frost Shock (Frozen Power)
-	 
-	-- stuns
+	-- Blood Elf
+	kDr.RegisterAura(kDr.CATEGORY_SILENCE, 25046); -- Arcane Torrent (Energy version)
+	kDr.RegisterAura(kDr.CATEGORY_SILENCE, 28730); -- Arcane Torrent (Priest/Mage/Lock version)
+	kDr.RegisterAura(kDr.CATEGORY_SILENCE, 50613); -- Arcane Torrent (Runic power version)
+	kDr.RegisterAura(kDr.CATEGORY_SILENCE, 69179); -- Arcane Torrent (Rage version)
+	kDr.RegisterAura(kDr.CATEGORY_SILENCE, 80483); -- Arcane Torrent (Focus version)
+	kDr.RegisterAura(kDr.CATEGORY_SILENCE, 129597); -- Arcane Torrent (Monk version)
+	kDr.RegisterAura(kDr.CATEGORY_SILENCE, 155145); -- Arcane Torrent (Paladin version)
+	kDr.RegisterAura(kDr.CATEGORY_SILENCE, 202719); -- Arcane Torrent (DH version)
+	
+	--[[ DISORIENTS ]]--
+	-- Death Knight
+	kDr.RegisterAura(kDr.CATEGORY_DISORIENT, 207167); -- Blinding Sleet (talent) -- FIXME: is this the right category?
+	-- Demon Hunter
+	kDr.RegisterAura(kDr.CATEGORY_DISORIENT, 207685); -- Sigil of Misery
+	-- Druid
+	kDr.RegisterAura(kDr.CATEGORY_DISORIENT, 33786); -- Cyclone
+	-- Hunter
+	kDr.RegisterAura(kDr.CATEGORY_DISORIENT, 186387); -- Bursting Shot
+	-- Mage
+	kDr.RegisterAura(kDr.CATEGORY_DISORIENT, 31661); -- Dragon's Breath
+	-- Monk
+	kDr.RegisterAura(kDr.CATEGORY_DISORIENT, 198909); -- Song of Chi-ji -- FIXME: is this the right category( tooltip specifically says disorient, so I guessed here)
+	kDr.RegisterAura(kDr.CATEGORY_DISORIENT, 202274); -- Incendiary Brew -- FIXME: is this the right category( tooltip specifically says disorient, so I guessed here)
+	-- Paladin
+	kDr.RegisterAura(kDr.CATEGORY_DISORIENT, 105421); -- Blinding Light -- FIXME: is this the right category? Its missing from blizzard's list
+	-- Priest
+	kDr.RegisterAura(kDr.CATEGORY_DISORIENT, 8122); -- Psychic Scream
+	-- Rogue
+	kDr.RegisterAura(kDr.CATEGORY_DISORIENT, 2094); -- Blind
+	-- Warlock
+	kDr.RegisterAura(kDr.CATEGORY_DISORIENT, 5782); -- Fear -- probably unused
+	kDr.RegisterAura(kDr.CATEGORY_DISORIENT, 118699); -- Fear -- new debuff ID since MoP
+	kDr.RegisterAura(kDr.CATEGORY_DISORIENT, 130616); -- Fear (with Glyph of Fear)
+	kDr.RegisterAura(kDr.CATEGORY_DISORIENT, 5484); -- Howl of Terror (talent)
+	kDr.RegisterAura(kDr.CATEGORY_DISORIENT, 115268); -- Mesmerize (Shivarra)
+	kDr.RegisterAura(kDr.CATEGORY_DISORIENT, 6358); -- Seduction (Succubus)
+	-- Warrior
+	kDr.RegisterAura(kDr.CATEGORY_DISORIENT, 5246); -- Intimidating Shout (main target)
+	
+	--[[ STUNS ]]--
+	-- Death Knight
+	-- Abomination's Might note: 207165 is the stun, but is never applied to players,
+	-- so I haven't included it.
+	kDr.RegisterAura(kDr.CATEGORY_STUN, 108194); -- Asphyxiate (talent for unholy)
+	kDr.RegisterAura(kDr.CATEGORY_STUN, 221562); -- Asphyxiate (baseline for blood)
+	kDr.RegisterAura(kDr.CATEGORY_STUN, 91800); -- Gnaw (Ghoul)
+	kDr.RegisterAura(kDr.CATEGORY_STUN, 91797); -- Monstrous Blow (Dark Transformation Ghoul)
+	kDr.RegisterAura(kDr.CATEGORY_STUN, 207171); -- Winter is Coming (Remorseless winter stun)
+	-- Demon Hunter
+	kDr.RegisterAura(kDr.CATEGORY_STUN, 179057); -- Chaos Nova
+	kDr.RegisterAura(kDr.CATEGORY_STUN, 200166); -- Metamorphosis
+	kDr.RegisterAura(kDr.CATEGORY_STUN, 205630); -- Illidan's Grasp, primary effect
+	kDr.RegisterAura(kDr.CATEGORY_STUN, 208618); -- Illidan's Grasp, secondary effect
+	kDr.RegisterAura(kDr.CATEGORY_STUN, 211881); -- Fel Eruption
+	-- Druid
+	kDr.RegisterAura(kDr.CATEGORY_STUN, 203123); -- Maim
+	kDr.RegisterAura(kDr.CATEGORY_STUN, 5211); -- Mighty Bash
+	kDr.RegisterAura(kDr.CATEGORY_STUN, 163505); -- Rake (Stun from Prowl)
+	-- Hunter
+	kDr.RegisterAura(kDr.CATEGORY_STUN, 117526); -- Binding Shot
+	kDr.RegisterAura(kDr.CATEGORY_STUN, 24394); -- Intimidation
+	-- Mage
+
+	-- Monk
+	kDr.RegisterAura(kDr.CATEGORY_STUN, 119381); -- Leg Sweep
+	-- Paladin
+	kDr.RegisterAura(kDr.CATEGORY_STUN, 853); -- Hammer of Justice
+	-- Priest
+	kDr.RegisterAura(kDr.CATEGORY_STUN, 200200); -- Holy word: Chastise
+	kDr.RegisterAura(kDr.CATEGORY_STUN, 226943); -- Mind Bomb
+	-- Rogue
+	-- Shadowstrike note: 196958 is the stun, but it never applies to players,
+	-- so I haven't included it.
+	kDr.RegisterAura(kDr.CATEGORY_STUN, 1833); -- Cheap Shot
+	kDr.RegisterAura(kDr.CATEGORY_STUN, 408); -- Kidney Shot
+	kDr.RegisterAura(kDr.CATEGORY_STUN, 199804); -- Between the Eyes
+	-- Shaman
 	kDr.RegisterAura(kDr.CATEGORY_STUN, 118345); -- Pulverize (Primal Earth Elemental)
 	kDr.RegisterAura(kDr.CATEGORY_STUN, 118905); -- Static Charge (Capacitor Totem)
-	 
-	-- incapacitates
-	kDr.RegisterAura(kDr.CATEGORY_INCAPACITATE, 51514); -- Hex
-	 
-	--[[ Warlock ]]
-	-- stuns
+	kDr.RegisterAura(kDr.CATEGORY_STUN, 204399); -- Earthfury (pvp talent)
+	-- Warlock
 	kDr.RegisterAura(kDr.CATEGORY_STUN, 89766); -- Axe Toss (Felguard)
 	kDr.RegisterAura(kDr.CATEGORY_STUN, 30283); -- Shadowfury
 	kDr.RegisterAura(kDr.CATEGORY_STUN, 22703); -- Summon Infernal
-	 
-	-- incapacitates
-	kDr.RegisterAura(kDr.CATEGORY_INCAPACITATE, 710); -- Banish
-	kDr.RegisterAura(kDr.CATEGORY_INCAPACITATE, 137143); -- Blood Horror
-	kDr.RegisterAura(kDr.CATEGORY_INCAPACITATE, 6789); -- Mortal Coil
-	 
-	-- disorients
-	kDr.RegisterAura(kDr.CATEGORY_DISORIENT, 5782); -- Fear
-	kDr.RegisterAura(kDr.CATEGORY_DISORIENT, 5484); -- Howl of Terror
-	kDr.RegisterAura(kDr.CATEGORY_DISORIENT, 115268); -- Mesmerize (Shivarra)
-	kDr.RegisterAura(kDr.CATEGORY_DISORIENT, 6358); -- Seduction (Succubus)
-	 
-	--[[ Warrior ]]
-	-- stuns
-	kDr.RegisterAura(kDr.CATEGORY_STUN, 46968); -- Shockwave
-	kDr.RegisterAura(kDr.CATEGORY_STUN, 107570); -- Storm Bolt
-	 
-	-- disorients
-	kDr.RegisterAura(kDr.CATEGORY_DISORIENT, 5246); -- Intimidating Shout
-	 
-	--[[ Racials ]]
-	-- stuns
+	-- Warrior
+	kDr.RegisterAura(kDr.CATEGORY_STUN, 132168); -- Shockwave
+	kDr.RegisterAura(kDr.CATEGORY_STUN, 132169); -- Storm Bolt
+	-- Tauren
 	kDr.RegisterAura(kDr.CATEGORY_STUN, 20549); -- War Stomp
-	 
-	-- incapacitates
-	kDr.RegisterAura(kDr.CATEGORY_INCAPACITATE, 107079); -- Quaking Palm
-	 
-	-- silences
-	kDr.RegisterAura(kDr.CATEGORY_SILENCE, 28730); -- Arcane Torrent (mana)
-	kDr.RegisterAura(kDr.CATEGORY_SILENCE, 25046); -- Arcane Torrent (energy)
-	kDr.RegisterAura(kDr.CATEGORY_SILENCE, 50613); -- Arcane Torrent (runic power)
-	kDr.RegisterAura(kDr.CATEGORY_SILENCE, 69179); -- Arcane Torrent (rage)
-	kDr.RegisterAura(kDr.CATEGORY_SILENCE, 80483); -- Arcane Torrent (focus)
-	kDr.RegisterAura(kDr.CATEGORY_SILENCE, 155145); -- Arcane Torrent (holy power)
-	kDr.RegisterAura(kDr.CATEGORY_SILENCE, 129597); -- Arcane Torrent (chi)
-
+	
+	--[[ ROOTS ]]--
+	-- Death Knight
+	kDr.RegisterAura(kDr.CATEGORY_ROOT, 96294); -- Chains of Ice (Chilblains Root)
+	kDr.RegisterAura(kDr.CATEGORY_ROOT, 204085); -- Deathchill (pvp talent)
+	-- Druid
+	kDr.RegisterAura(kDr.CATEGORY_ROOT, 339); -- Entangling Roots
+	kDr.RegisterAura(kDr.CATEGORY_ROOT, 102359); -- Mass Entanglement (talent)
+	kDr.RegisterAura(kDr.CATEGORY_ROOT, 45334); -- Immobilized (wild charge, bear form)
+	-- Hunter
+	kDr.RegisterAura(kDr.CATEGORY_ROOT, 53148); -- Charge (Tenacity pet)
+	kDr.RegisterAura(kDr.CATEGORY_ROOT, 162480); -- Steel Trap
+	kDr.RegisterAura(kDr.CATEGORY_ROOT, 190927); -- Harpoon
+	kDr.RegisterAura(kDr.CATEGORY_ROOT, 200108); -- Ranger's Net
+	kDr.RegisterAura(kDr.CATEGORY_ROOT, 212638); -- tracker's net
+	kDr.RegisterAura(kDr.CATEGORY_ROOT, 201158); -- Super Sticky Tar (Expert Trapper, Hunter talent, Tar Trap effect)
+	-- Mage
+	kDr.RegisterAura(kDr.CATEGORY_ROOT, 122); -- Frost Nova
+	kDr.RegisterAura(kDr.CATEGORY_ROOT, 33395); -- Freeze (Water Elemental)
+	-- kDr.RegisterAura(kDr.CATEGORY_ROOT, 157997); -- Ice Nova -- since 6.1, ice nova doesn't DR with anything
+	kDr.RegisterAura(kDr.CATEGORY_ROOT, 228600); -- Glacial spike (talent)
+	-- Monk
+	kDr.RegisterAura(kDr.CATEGORY_ROOT, 116706); -- Disable
+	-- Priest
+	-- Shaman
+	kDr.RegisterAura(kDr.CATEGORY_ROOT, 64695); -- Earthgrab Totem
+	
 	-- test
 	if (TEST_MODE) then
-		kDr.RegisterAura(kDr.CATEGORY_STUN, 6788); -- Weakened Soul
+		kDr.RegisterAura(kDr.CATEGORY_STUN, 194384); -- Atonement
 	end
 end
