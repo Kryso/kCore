@@ -12,13 +12,13 @@ local Base;
 -- **** public ****
 local SetType = function( self, type )
 	if ( type == "Magic" ) then
-		self:SetBorderColor( 70 / 255, 70 / 255, 200 / 255 );
+		self:SetBorderColor( 70 / 255, 70 / 255, 200 / 255, 1 );
 	elseif ( type == "Curse" ) then
-		self:SetBorderColor( 200 / 255, 70 / 255, 200 / 255 );
+		self:SetBorderColor( 200 / 255, 70 / 255, 200 / 255, 1 );
 	elseif ( type == "Poison" ) then
-		self:SetBorderColor( 70 / 255, 200 / 255, 70 / 255 );
+		self:SetBorderColor( 70 / 255, 200 / 255, 70 / 255, 1 );
 	else
-		self:SetBorderColor( 200 / 255, 70 / 255, 70 / 255 );
+		self:SetBorderColor( 200 / 255, 70 / 255, 70 / 255, 1 );
 	end
 end
 

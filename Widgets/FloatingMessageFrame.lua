@@ -119,7 +119,7 @@ local ctor = function( self, baseCtor )
 	
 	--[[local a = kWidgets.Texture( self );
 	a:SetAllPoints( self );
-	a:SetTexture( 0, 0, 0, 1 );
+	a:SetColorTexture( 0, 0, 0, 1 );
 	a:SetDrawLayer( "BACKGROUND" );]]--
 	
 	self.lines = { };

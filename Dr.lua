@@ -1,4 +1,4 @@
-local TEST_MODE = true;
+local TEST_MODE = false;
 
 local RESET = 18.5;
 local DURATIONS = { 1.0, 0.5, 0.25 };
@@ -153,7 +153,12 @@ do
 	-- events
 	kEvents.RegisterEvent("COMBAT_LOG_EVENT_UNFILTERED", function(_, timeStamp, event, hideCaster, sourceGUID, sourceName, sourceFlags, sourceRaidFlags, destGUID, destName, destFlags, destRaidFlags, ...)
 
-		if (event ~= "SPELL_AURA_REFRESH" and event ~= "SPELL_AURA_REMOVED") then
+		-- todo: apply event
+
+		local isFadeEvent = event == "SPELL_AURA_REFRESH" or event == "SPELL_AURA_REMOVED" or event == "SPELL_AURA_BROKEN";
+		local isApplyEvent = false or event == "SPELL_AURA_REFRESH" or event == "SPELL_AURA_APPLIED";
+
+		if (not isFadeEvent and not isApplyEvent) then
 			return;
 		end
 
@@ -166,13 +171,30 @@ do
 
 		local spellId, spellName, spellSchool, auraType, amount = ...;
 		
-		if (auraType == "DEBUFF") then
-			local info = auras[spellId];
-
-			if (info) then
-				AuraFaded(info, destGUID, destName);
-			end
+		if (auraType ~= "DEBUFF" and not TEST_MODE) then
+			return;
 		end
+
+		local info = auras[spellId];
+
+		if (not info) then
+			return;
+		end
+
+		-- -- debug start
+		-- if (destGUID ~= UnitGUID("player")) then
+		-- 	return;
+		-- end
+		-- print(time(), event);
+		-- -- debug end
+
+		if (isFadeEvent) then
+			AuraFaded(info, destGUID, destName);
+		end
+
+		-- if (isApplyEvent) then
+		-- 	AuraApplied(info, destGUID, destName, duration);
+		-- end
 
 	end);
 

@@ -17,7 +17,11 @@ local Cooldown, Base;
 local instanceIndex = 0;
 local createInstance = function( class )
 	local result = CreateFrame( "Cooldown", "kCooldown" .. instanceIndex, nil, "CooldownFrameTemplate" );
-	
+	result.noOCC = true;
+	result.noCooldownCount = true;
+	result:SetHideCountdownNumbers(true);
+	result:SetDrawEdge(true);
+
 	instanceIndex = instanceIndex + 1;
 
 	if ( not Cooldown.initialized ) then

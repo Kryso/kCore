@@ -72,26 +72,26 @@ local ctor = function( self, baseCtor, frame )
 	self.innerSize = 1;
 	self.outerSize = 1;
 
-	self:SetTexture( 1, 1, 1, 1 );
+	self:SetColorTexture( 1, 1, 1, 1 );
 	self:SetDrawLayer( "BACKGROUND" );
 	
 	local left = Texture( frame );
-	left:SetTexture( 1, 1, 1, 1 );
+	left:SetColorTexture( 1, 1, 1, 1 );
 	left:SetDrawLayer( "BORDER" );
 	self.left = left;
 
 	local right = Texture( frame );
-	right:SetTexture( 1, 1, 1, 1 );
+	right:SetColorTexture( 1, 1, 1, 1 );
 	right:SetDrawLayer( "BORDER" );
 	self.right = right;
 	
 	local top = Texture( frame );
-	top:SetTexture( 1, 1, 1, 1 );
+	top:SetColorTexture( 1, 1, 1, 1 );
 	top:SetDrawLayer( "BORDER" );
 	self.top = top;
 	
 	local bottom = Texture( frame );
-	bottom:SetTexture( 1, 1, 1, 1 );
+	bottom:SetColorTexture( 1, 1, 1, 1 );
 	bottom:SetDrawLayer( "BORDER" );
 	self.bottom = bottom;
 	

@@ -76,7 +76,7 @@ local ctor = function( self, baseCtor, createCooldown )
 	
 	local icon = Texture( self );
 	icon:SetDrawLayer( "ARTWORK" );
-	icon:SetTexCoord( 0.15, 0.85, 0.15, 0.85 );
+	icon:SetTexCoord( 0.08, 0.92, 0.08, 0.92 );
 	self.icon = icon;
 	
 	if ( createCooldown ) then
